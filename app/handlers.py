@@ -107,7 +107,6 @@ async def show_statistics(message: Message):
             all_data[account_name].extend(stats)
             await avito.close()
 
-        # Создание XLSX
         xlsx_file = await create_xlsx_report(all_data)
         await message.answer_document(types.BufferedInputFile(xlsx_file, filename="statistic.xlsx"))
         await message.answer("Статистика успешно сформирована и отправлена.")
